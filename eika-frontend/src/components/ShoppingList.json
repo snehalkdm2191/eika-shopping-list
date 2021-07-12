@@ -1,0 +1,49 @@
+[
+    
+	{
+		"title": "Wooden Chair",
+		"price": "200",
+		"imageUrl": "wooden_chair.jpg"
+	},
+
+    {
+		"title": "Dining Table Set",
+		"price": "4000",
+		"imageUrl": "dinning_table.jpg"
+    },
+	
+    {
+		"title": "Swing Chair",
+		"price": "2500",
+		"imageUrl": "swing_chair.jpg"
+    },
+	
+    {
+		"title": "Sofa Set",
+		"price": "10000",
+		"imageUrl": "sofa_set.jpg"
+    },
+
+	{
+		 "title": "Study Table",
+		 "price": "750",
+		 "imageUrl": "study_table.jpg"
+	},
+
+    {
+		"title": "Work Table",
+		"price": "1500",
+		"imageUrl": "work_table.jpg"
+    },
+    {
+		"title": "Wooden Shelf",
+		"price": "3500",
+		"imageUrl": "wooden_shelf.jpg"
+    },
+    {
+		"title": "Wall Decore",
+		"price": "500",
+		"imageUrl": "wall_decore.jpg"
+    }
+
+]
