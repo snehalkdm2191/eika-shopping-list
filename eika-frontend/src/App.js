@@ -1,10 +1,19 @@
-import './App.css';
+import "./css/App.css";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+import StartPage from "./components/StartShopping";
 
 function App() {
   return (
-    <div className="App">
-     <h1>My App</h1>
-    </div>
+    
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <StartPage />
+        </Route>
+      </Switch>
+    </Router>
+    
   );
 }
 
