@@ -24,11 +24,11 @@ function ShoppingCart({ cartItem, onAdd, cartProduct, onRemove }) {
                 {item.price}{" "}
               </label>
               <div className="text-center">
-              <button onclick={() => onAdd(item)} className="add">
+              <button onClick={() => onAdd(item)} className="add">
                 +
               </button>
               <label for="itemsDetails">{item.qty}</label>
-              <button onclick={() => onRemove(item)} className="remove">
+              <button onClick={() => onRemove(item)} className="remove">
                 -
               </button>
               </div>

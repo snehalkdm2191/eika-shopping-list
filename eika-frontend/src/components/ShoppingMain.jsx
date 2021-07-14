@@ -5,41 +5,51 @@ import itemList from "./ShoppingList.json";
 import ShoppingApi from "../api/ShoppingApi";
 
 function ShoppingMain() {
+  const [cartProduct, setCartProduct] = useState([]);
   const [cartItem, setCartItem] = useState([]);
+
   const onAdd = (product) => {
-    const exist = cartItem.find((x) => x.id === product.id);
+    const exist = cartProduct.find((x) => x.id === product.id);
     if (exist) {
-      setCartItem(
-        cartItem.map((x) =>
-          x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x
+      setCartProduct(
+        cartProduct.map((x) =>
+          x.id === product.id ? { ...exist, qty: product.qty += 1 } : x
         )
       );
-      add(product);
+      update(product);
     } else {
-      setCartItem([...cartItem, { ...product, qty: 1 }]);
+      setCartProduct([...cartProduct, { ...product, qty: product.qty = 1 }]);
       add(product);
     }
   };
 
   const onRemove = (product) => {
-    const exist = cartItem.find((x) => x.id === product.id);
+    const exist = cartProduct.find((x) => x.id === product.id);
     if (exist.qty === 1) {
-      setCartItem(cartItem.filter((x) => x.id !== product.id));
+      setCartProduct(cartProduct.filter((x) => x.id !== product.id));
     } else {
-      cartItem.map((x) =>
-        x.id === product.id ? {...exist, qty: exist.qty-1} : x
-      )
+      cartProduct.map((x) =>
+        x.id === product.id ? {...exist, qty: product.qty -= 1} : x
+      );
+      update(product);
     }
   };
 
   const add = async (data) => {
+    alert(data.qty);
     const onSuccess = await ShoppingApi.createItem(data);
     if (onSuccess) {
       fetchPosts();
     }
   };
 
-  const [cartProduct, setCartProduct] = useState([]);
+  const update = async (data) => {
+    const onSuccess = await ShoppingApi.updateItem(data);
+    if (onSuccess) {
+      alert(data.qty);
+      fetchPosts();
+    }
+  };
 
     const fetchPosts = async () => {
       const response = await ShoppingApi.getAllItems();

@@ -9,6 +9,10 @@ class ShoppingApi {
     return Api.post('/list/new/', data);
   }
 
+  updateItem(data) {
+    return Api.put('/list/update/', data);
+  }
+
   deleteItem(id) {
     return Api.delete('/list/' + id);
   }
