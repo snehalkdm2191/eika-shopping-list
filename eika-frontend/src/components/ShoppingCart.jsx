@@ -1,12 +1,14 @@
 import React from "react";
 
-function ShoppingCart({ cartItem, onAdd }) {
+function ShoppingCart({ cartItem, onAdd, cartProduct, onRemove }) {
   return (
     <>
       <div>
-        {cartItem.length === 0 && <label for="artisan">Cart is empty..</label>}
+        {cartProduct.length === 0 && (
+          <label for="artisan">Cart is empty..</label>
+        )}
       </div>
-      {cartItem.map((item) => (
+      {cartProduct.map((item) => (
         <div class="py-2 border-bottom ml-3">
           <div id="orange">
             <span class="fa fa-minus"></span>
@@ -16,8 +18,20 @@ function ShoppingCart({ cartItem, onAdd }) {
               {" "}
               <input type="checkbox" id="itemsDetails" />{" "}
               <label for="itemsDetails">
-                {item.title} {item.price}{" "}
+                {item.title}{" "}
               </label>{" "}
+              <label for="itemsDetails">
+                {item.price}{" "}
+              </label>
+              <div className="text-center">
+              <button onclick={() => onAdd(item)} className="add">
+                +
+              </button>
+              <label for="itemsDetails">{item.qty}</label>
+              <button onclick={() => onRemove(item)} className="remove">
+                -
+              </button>
+              </div>
             </div>
           </form>
         </div>
