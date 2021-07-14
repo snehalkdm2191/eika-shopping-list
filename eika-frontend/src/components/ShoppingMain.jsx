@@ -69,23 +69,6 @@ function ShoppingMain() {
 
   return (
     <>
-      <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom">
-        <a class="navbar-brand ml-2 font-weight-bold" href="#">
-          <span id="burgundy">The</span>
-          <span id="orange">Bakeshop</span>
-        </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarColor"
-          aria-controls="navbarColor"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>{" "}
-        </button>
-      </nav>
       <div class="filter">
         {" "}
         <button
