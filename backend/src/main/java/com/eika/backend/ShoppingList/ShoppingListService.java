@@ -26,9 +26,7 @@ public class ShoppingListService {
         return repository.save(newList);
     }
 
-    public ShoppingList update(ShoppingList  updatedList ) {
-        return repository.save(updatedList);
-    }
+    public ShoppingList update(ShoppingList  updatedList ) { return repository.save(updatedList); }
 
     public void delete(Long id) {
         repository.deleteById(id);

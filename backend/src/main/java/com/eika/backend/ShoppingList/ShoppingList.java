@@ -11,18 +11,19 @@ public class ShoppingList {
     private Long id;
     // All fields for ShoppingList
     private String title;
-    private String price;
+    private Integer price;
     private String imageUrl;
-    private String date;
+    private Integer qty;
 
     public ShoppingList() {
     }
 
-    public ShoppingList(Long id, String title, String price, String date) {
+    public ShoppingList(Long id, String title, Integer price, String imageUrl, Integer qty) {
         this.id = id;
         this.title = title;
         this.price = price;
-        this.date = date;
+        this.imageUrl = imageUrl;
+        this.qty = qty;
     }
 
     /**
@@ -45,21 +46,9 @@ public class ShoppingList {
         this.title = title;
     }
 
-    public String getPrice() {
-        return price;
-    }
+    public Integer getPrice() { return price; }
 
-    public void setPrice(String price) {
-        this.price = price;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
+    public void setPrice(Integer price) { this.price = price; }
 
     public String getImageUrl() {
         return imageUrl;
@@ -68,5 +57,9 @@ public class ShoppingList {
     public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
     }
+
+    public Integer getQty() { return qty; }
+
+    public void setQty(Integer qty) { this.qty = qty; }
 
 }
