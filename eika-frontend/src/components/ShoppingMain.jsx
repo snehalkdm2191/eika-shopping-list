@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
 import StartShopping from "./StartShopping";
 import ShoppingCart from "./ShoppingCart";
 import itemList from "./ShoppingList.json";
@@ -6,7 +7,6 @@ import ShoppingApi from "../api/ShoppingApi";
 
 function ShoppingMain() {
   const [cartProduct, setCartProduct] = useState([]);
-  const [cartItem, setCartItem] = useState([]);
 
   const onAdd = (product) => {
     const exist = cartProduct.find((x) => x.id === product.id);
@@ -37,7 +37,6 @@ function ShoppingMain() {
   };
 
   const add = async (data) => {
-    alert(data.qty);
     const onSuccess = await ShoppingApi.createItem(data);
     if (onSuccess) {
       fetchPosts();
@@ -69,48 +68,49 @@ function ShoppingMain() {
 
   return (
     <>
-      <div class="filter">
-        {" "}
-        <button
-          class="btn btn-default"
-          type="button"
-          data-toggle="collapse"
-          data-target="#mobile-filter"
-          aria-expanded="true"
-          aria-controls="mobile-filter"
-        >
-          Filters<span class="fa fa-filter pl-1"></span>
-        </button>
-      </div>
       <div id="mobile-filter">
         <p class="pl-sm-0 pl-2">
           {" "}
-          Home | <b>All Breads</b>
+          <NavLink to="/" class="main-nav" exact>
+            Home
+          </NavLink>
+          | <b>All Products</b>
         </p>
         <div class="border-bottom pb-2 ml-2">
           <h4 id="burgundy">Filters</h4>
         </div>
         <ShoppingCart
-          cartItem={cartItem}
           onAdd={onAdd}
           onRemove={onRemove}
           cartProduct={cartProduct}
         />
+        <div className="text-center">
+            <NavLink to="/order" exact>
+              View Completed Order
+            </NavLink>
+          </div><br/>
       </div>
       <section id="sidebar">
         <p>
           {" "}
-          Home | <b>All Breads</b>
+          <NavLink to="/" class="main-nav" exact>
+            Home
+          </NavLink>
+          | <b>All Products</b>
         </p>
         <div class="border-bottom pb-2 ml-2">
           <h4 id="burgundy">Your Cart</h4>
         </div>
         <ShoppingCart
-          cartItem={cartItem}
           onAdd={onAdd}
           onRemove={onRemove}
           cartProduct={cartProduct}
         />
+        <div className="text-center">
+            <NavLink to="/order" exact>
+              View Completed Order
+            </NavLink>
+          </div>
       </section>
 
       <section id="products">
